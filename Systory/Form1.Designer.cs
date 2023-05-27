@@ -51,6 +51,7 @@
             Bt_Batch.TabIndex = 0;
             Bt_Batch.Text = "Batch";
             Bt_Batch.UseVisualStyleBackColor = false;
+            Bt_Batch.Click += Bt_Batch_Click;
             // 
             // Pn_Feature
             // 
