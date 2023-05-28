@@ -21,5 +21,14 @@ namespace Systory
         {
             this.Close();
         }
+
+        private void Bt_NewBatch_Click(object sender, EventArgs e)
+        {
+            var newBatch = new NewBatch();
+            newBatch.TopLevel = false;
+            Pn_info.Controls.Add(newBatch);
+            newBatch.Show();
+            newBatch.BringToFront();
+        }
     }
 }

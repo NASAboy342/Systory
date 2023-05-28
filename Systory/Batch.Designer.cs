@@ -34,15 +34,18 @@
             label1 = new Label();
             label2 = new Label();
             Bt_NewBatch = new Button();
+            Pn_info = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            Pn_info.SuspendLayout();
             SuspendLayout();
             // 
             // Bt_Close
             // 
-            Bt_Close.Location = new Point(12, 12);
+            Bt_Close.Location = new Point(14, 16);
+            Bt_Close.Margin = new Padding(3, 4, 3, 4);
             Bt_Close.Name = "Bt_Close";
-            Bt_Close.Size = new Size(75, 23);
+            Bt_Close.Size = new Size(86, 31);
             Bt_Close.TabIndex = 0;
             Bt_Close.Text = "Close";
             Bt_Close.UseVisualStyleBackColor = true;
@@ -52,73 +55,92 @@
             // 
             dataGridView1.BackgroundColor = Color.Teal;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 100);
+            dataGridView1.Location = new Point(3, 46);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(198, 414);
+            dataGridView1.Size = new Size(224, 552);
             dataGridView1.TabIndex = 1;
             // 
             // dataGridView2
             // 
             dataGridView2.BackgroundColor = Color.Teal;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(216, 100);
+            dataGridView2.Location = new Point(233, 46);
+            dataGridView2.Margin = new Padding(3, 4, 3, 4);
             dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(390, 414);
+            dataGridView2.Size = new Size(443, 552);
             dataGridView2.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(0, 64, 64);
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 65);
+            label1.Location = new Point(8, 8);
             label1.Name = "label1";
-            label1.Size = new Size(55, 23);
+            label1.Size = new Size(69, 29);
             label1.TabIndex = 3;
             label1.Text = "Batch";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(0, 64, 64);
             label2.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(216, 65);
+            label2.Location = new Point(241, 8);
             label2.Name = "label2";
-            label2.Size = new Size(58, 23);
+            label2.Size = new Size(74, 29);
             label2.TabIndex = 4;
             label2.Text = "Major";
             // 
             // Bt_NewBatch
             // 
-            Bt_NewBatch.Location = new Point(531, 65);
+            Bt_NewBatch.Location = new Point(604, 49);
+            Bt_NewBatch.Margin = new Padding(3, 4, 3, 4);
             Bt_NewBatch.Name = "Bt_NewBatch";
-            Bt_NewBatch.Size = new Size(75, 23);
+            Bt_NewBatch.Size = new Size(86, 31);
             Bt_NewBatch.TabIndex = 5;
             Bt_NewBatch.Text = "New Batch";
             Bt_NewBatch.UseVisualStyleBackColor = true;
+            Bt_NewBatch.Click += Bt_NewBatch_Click;
+            // 
+            // Pn_info
+            // 
+            Pn_info.BackColor = Color.FromArgb(0, 64, 64);
+            Pn_info.Controls.Add(dataGridView1);
+            Pn_info.Controls.Add(dataGridView2);
+            Pn_info.Controls.Add(label2);
+            Pn_info.Controls.Add(label1);
+            Pn_info.Location = new Point(14, 87);
+            Pn_info.Name = "Pn_info";
+            Pn_info.Size = new Size(679, 602);
+            Pn_info.TabIndex = 6;
             // 
             // Batch
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(618, 526);
+            ClientSize = new Size(706, 701);
             Controls.Add(Bt_NewBatch);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(dataGridView2);
-            Controls.Add(dataGridView1);
             Controls.Add(Bt_Close);
+            Controls.Add(Pn_info);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Batch";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Batch";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            Pn_info.ResumeLayout(false);
+            Pn_info.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -129,5 +151,6 @@
         private Label label1;
         private Label label2;
         private Button Bt_NewBatch;
+        private Panel Pn_info;
     }
 }

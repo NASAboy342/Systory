@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "BuKt1/31Hgd2yTeGUcl1LUAK46nQFOUb5uCsVXe6iRN6xILb425sKvkSahFXeNruP48hpY2BYwZZWrVmOqM93A==",
+  "dgSpecHash": "YIY17ld30rzIPEKsURxa6W/7/18q8QsNsietogDir5uDGln6/uair20yBTK/Uiv9VpQcOqiJvi1diDxT54isMA==",
   "success": true,
   "projectFilePath": "D:\\Clones\\Systory\\Systory\\Systory\\Systory.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.568win.local/nuget/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

@@ -37,3 +37,4 @@ D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\refint\Systory.dll
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.pdb
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.genruntimeconfig.cache
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\ref\Systory.dll
+D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.NewBatch.resources

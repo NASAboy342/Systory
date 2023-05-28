@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Pin Sopheaktra\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Pin Sopheaktra\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\sopheaktra.pin\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sopheaktra.pin\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
