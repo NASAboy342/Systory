@@ -32,7 +32,7 @@
             label1 = new Label();
             Lb_batch = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            Tb_year = new TextBox();
             label3 = new Label();
             Bt_cancel = new Button();
             panel1 = new Panel();
@@ -84,12 +84,12 @@
             label2.TabIndex = 3;
             label2.Text = "Year:";
             // 
-            // textBox1
+            // Tb_year
             // 
-            textBox1.Location = new Point(146, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(203, 27);
-            textBox1.TabIndex = 4;
+            Tb_year.Location = new Point(146, 100);
+            Tb_year.Name = "Tb_year";
+            Tb_year.Size = new Size(203, 27);
+            Tb_year.TabIndex = 4;
             // 
             // label3
             // 
@@ -115,7 +115,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(Tb_year);
             panel1.Controls.Add(Bt_cancel);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(Bt_create);
@@ -147,6 +147,7 @@
             Name = "NewBatch";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NewBatch";
+            Load += NewBatch_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -159,7 +160,7 @@
         private Label label1;
         private Label Lb_batch;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox Tb_year;
         private Label label3;
         private Button Bt_cancel;
         private Panel panel1;

@@ -4,6 +4,9 @@
     <Compile Update="Batch.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConnectingToDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Database Connection.cs">
       <SubType>Form</SubType>
     </Compile>

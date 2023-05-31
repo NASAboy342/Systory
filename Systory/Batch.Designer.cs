@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             Bt_Close = new Button();
-            dataGridView1 = new DataGridView();
-            dataGridView2 = new DataGridView();
+            BatchDataGrid = new DataGridView();
+            MajorDataGrid = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             Bt_NewBatch = new Button();
             Pn_info = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            Bt_addMajor = new Button();
+            Bt_refresh = new Button();
+            ((System.ComponentModel.ISupportInitialize)BatchDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MajorDataGrid).BeginInit();
             Pn_info.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,29 +53,30 @@
             Bt_Close.UseVisualStyleBackColor = true;
             Bt_Close.Click += Bt_Close_Click;
             // 
-            // dataGridView1
+            // BatchDataGrid
             // 
-            dataGridView1.BackgroundColor = Color.Teal;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 46);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(224, 552);
-            dataGridView1.TabIndex = 1;
+            BatchDataGrid.BackgroundColor = Color.Teal;
+            BatchDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BatchDataGrid.Location = new Point(3, 46);
+            BatchDataGrid.Margin = new Padding(3, 4, 3, 4);
+            BatchDataGrid.Name = "BatchDataGrid";
+            BatchDataGrid.RowHeadersWidth = 51;
+            BatchDataGrid.RowTemplate.Height = 25;
+            BatchDataGrid.Size = new Size(224, 552);
+            BatchDataGrid.TabIndex = 1;
+            BatchDataGrid.CellContentClick += BatchDataGrid_CellContentClick;
             // 
-            // dataGridView2
+            // MajorDataGrid
             // 
-            dataGridView2.BackgroundColor = Color.Teal;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(233, 46);
-            dataGridView2.Margin = new Padding(3, 4, 3, 4);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(443, 552);
-            dataGridView2.TabIndex = 2;
+            MajorDataGrid.BackgroundColor = Color.Teal;
+            MajorDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            MajorDataGrid.Location = new Point(233, 46);
+            MajorDataGrid.Margin = new Padding(3, 4, 3, 4);
+            MajorDataGrid.Name = "MajorDataGrid";
+            MajorDataGrid.RowHeadersWidth = 51;
+            MajorDataGrid.RowTemplate.Height = 25;
+            MajorDataGrid.Size = new Size(443, 552);
+            MajorDataGrid.TabIndex = 2;
             // 
             // label1
             // 
@@ -101,10 +104,10 @@
             // 
             // Bt_NewBatch
             // 
-            Bt_NewBatch.Location = new Point(604, 49);
+            Bt_NewBatch.Location = new Point(133, 8);
             Bt_NewBatch.Margin = new Padding(3, 4, 3, 4);
             Bt_NewBatch.Name = "Bt_NewBatch";
-            Bt_NewBatch.Size = new Size(86, 31);
+            Bt_NewBatch.Size = new Size(94, 31);
             Bt_NewBatch.TabIndex = 5;
             Bt_NewBatch.Text = "New Batch";
             Bt_NewBatch.UseVisualStyleBackColor = true;
@@ -113,8 +116,10 @@
             // Pn_info
             // 
             Pn_info.BackColor = Color.FromArgb(0, 64, 64);
-            Pn_info.Controls.Add(dataGridView1);
-            Pn_info.Controls.Add(dataGridView2);
+            Pn_info.Controls.Add(Bt_addMajor);
+            Pn_info.Controls.Add(Bt_NewBatch);
+            Pn_info.Controls.Add(BatchDataGrid);
+            Pn_info.Controls.Add(MajorDataGrid);
             Pn_info.Controls.Add(label2);
             Pn_info.Controls.Add(label1);
             Pn_info.Location = new Point(14, 87);
@@ -122,13 +127,33 @@
             Pn_info.Size = new Size(679, 602);
             Pn_info.TabIndex = 6;
             // 
+            // Bt_addMajor
+            // 
+            Bt_addMajor.Location = new Point(582, 8);
+            Bt_addMajor.Name = "Bt_addMajor";
+            Bt_addMajor.Size = new Size(94, 29);
+            Bt_addMajor.TabIndex = 7;
+            Bt_addMajor.Text = "Add Major";
+            Bt_addMajor.UseVisualStyleBackColor = true;
+            // 
+            // Bt_refresh
+            // 
+            Bt_refresh.Location = new Point(604, 16);
+            Bt_refresh.Margin = new Padding(3, 4, 3, 4);
+            Bt_refresh.Name = "Bt_refresh";
+            Bt_refresh.Size = new Size(86, 31);
+            Bt_refresh.TabIndex = 7;
+            Bt_refresh.Text = "Refresh";
+            Bt_refresh.UseVisualStyleBackColor = true;
+            Bt_refresh.Click += Bt_refresh_Click;
+            // 
             // Batch
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
             ClientSize = new Size(706, 701);
-            Controls.Add(Bt_NewBatch);
+            Controls.Add(Bt_refresh);
             Controls.Add(Bt_Close);
             Controls.Add(Pn_info);
             FormBorderStyle = FormBorderStyle.None;
@@ -136,8 +161,9 @@
             Name = "Batch";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Batch";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            Load += Batch_Load;
+            ((System.ComponentModel.ISupportInitialize)BatchDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MajorDataGrid).EndInit();
             Pn_info.ResumeLayout(false);
             Pn_info.PerformLayout();
             ResumeLayout(false);
@@ -146,11 +172,13 @@
         #endregion
 
         private Button Bt_Close;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        private DataGridView BatchDataGrid;
+        private DataGridView MajorDataGrid;
         private Label label1;
         private Label label2;
         private Button Bt_NewBatch;
         private Panel Pn_info;
+        private Button Bt_addMajor;
+        private Button Bt_refresh;
     }
 }
