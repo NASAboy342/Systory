@@ -13,6 +13,7 @@ namespace Systory
 
         private void Bt_Batch_Click(object sender, EventArgs e)
         {
+            Pn_Info.Controls.Clear();
             Batch batch = new Batch();
             batch.TopLevel = false;
             Pn_Info.Controls.Add(batch);
@@ -34,7 +35,7 @@ namespace Systory
             var isConnectedToDataBase = _main.CheckConnection();
             if (!isConnectedToDataBase)
             {
-                
+
                 var databaseConnection = new Database_Connection();
                 databaseConnection.ShowDialog();
                 var isConnectedToDataBase2 = _main.CheckConnection();
@@ -46,6 +47,15 @@ namespace Systory
             }
             connectionToDataBase.Close();
             this.Enabled = true;
+        }
+
+        private void Bt_faculty_Click(object sender, EventArgs e)
+        {
+            Pn_Info.Controls.Clear();
+            Faculty faculty = new Faculty();
+            faculty.TopLevel = false;
+            Pn_Info.Controls.Add(faculty);
+            faculty.Show();
         }
     }
 }

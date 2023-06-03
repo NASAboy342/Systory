@@ -135,6 +135,7 @@
             Bt_addMajor.TabIndex = 7;
             Bt_addMajor.Text = "Add Major";
             Bt_addMajor.UseVisualStyleBackColor = true;
+            Bt_addMajor.Click += Bt_addMajor_Click;
             // 
             // Bt_refresh
             // 

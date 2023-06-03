@@ -24,4 +24,9 @@ namespace Systory.Models
         public static string SpName => "dbo.InsertNewBatch";
         public static string ParaName => "@newBatch";
     }
+    class StoredProcedureInsertNewMajor
+    {
+        public static string SpName => "dbo.InsertNewMajor";
+        public static string ParaName => "@newMajor";
+    }
 }

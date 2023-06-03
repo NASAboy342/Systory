@@ -23,21 +23,36 @@ namespace Systory
 
         private void Bt_create_Click(object sender, EventArgs e)
         {
-            var batch = new BatchModel()
+            try
             {
-                Batch = Convert.ToInt32(Lb_batch.Text.Trim()),
-                Year = Convert.ToInt32(Tb_year.Text.Trim())
-            };
-            var status = _dbDataRepo.InsertNewBatch(batch);
-            if (status.Equals(ErrorCode.Error))
+                if (!(Convert.ToInt32(Tb_year.Text) <= _dbDataRepo.GetNewYear()))
+                {
+                    var batch = new BatchModel()
+                    {
+                        Batch = Convert.ToInt32(Lb_batch.Text.Trim()),
+                        Year = Convert.ToInt32(Tb_year.Text.Trim())
+                    };
+                    var status = _dbDataRepo.InsertNewBatch(batch);
+                    if (status.Equals(ErrorCode.Error))
+                    {
+                        MessageBox.Show("Create Error. Try again");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Create success");
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Create Error. Try again");
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Create Error. Try again");
             }
-            else
-            {
-                MessageBox.Show("Create success");
-                this.Close();
-            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

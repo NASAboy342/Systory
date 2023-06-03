@@ -35,7 +35,7 @@
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
+            Bt_faculty = new Button();
             label1 = new Label();
             Pn_Info = new Panel();
             Pn_Feature.SuspendLayout();
@@ -61,7 +61,7 @@
             Pn_Feature.Controls.Add(button5);
             Pn_Feature.Controls.Add(button4);
             Pn_Feature.Controls.Add(button3);
-            Pn_Feature.Controls.Add(button2);
+            Pn_Feature.Controls.Add(Bt_faculty);
             Pn_Feature.Controls.Add(Bt_Batch);
             Pn_Feature.Location = new Point(14, 83);
             Pn_Feature.Margin = new Padding(3, 4, 3, 4);
@@ -121,18 +121,18 @@
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // Bt_faculty
             // 
-            button2.BackColor = Color.DarkCyan;
-            button2.Enabled = false;
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(3, 53);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(163, 41);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = false;
+            Bt_faculty.BackColor = Color.DarkCyan;
+            Bt_faculty.ForeColor = SystemColors.ButtonHighlight;
+            Bt_faculty.Location = new Point(3, 53);
+            Bt_faculty.Margin = new Padding(3, 4, 3, 4);
+            Bt_faculty.Name = "Bt_faculty";
+            Bt_faculty.Size = new Size(163, 41);
+            Bt_faculty.TabIndex = 1;
+            Bt_faculty.Text = "Faculty";
+            Bt_faculty.UseVisualStyleBackColor = false;
+            Bt_faculty.Click += Bt_faculty_Click;
             // 
             // label1
             // 
@@ -180,7 +180,7 @@
 
         private Button Bt_Batch;
         private Panel Pn_Feature;
-        private Button button2;
+        private Button Bt_faculty;
         private Button button6;
         private Button button5;
         private Button button4;

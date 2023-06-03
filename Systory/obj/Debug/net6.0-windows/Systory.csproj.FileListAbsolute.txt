@@ -46,3 +46,5 @@ D:\Clones\Systory\Systory\Systory\bin\Debug\net6.0-windows\runtimes\unix\lib\net
 D:\Clones\Systory\Systory\Systory\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.csproj.CopyComplete
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.ConnectingToDataBase.resources
+D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.NewMajor.resources
+D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.Faculty.resources

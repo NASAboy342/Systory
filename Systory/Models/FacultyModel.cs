@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Systory.Models
 {
-    internal class MajorModel
+    internal class FacultyModel
     {
-        public int MajorId { get; set; }
-        public string MajorName { get; set; }
         public int FacultyId { get; set; }
-        public int Batch { get; set; }
+        public string FacultyName { get; set; }
     }
 }
