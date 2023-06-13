@@ -17,6 +17,7 @@ namespace Systory
 
         BatchController _batchController = new BatchController();
         string _selectedBatch = string.Empty;
+        string _selectedMajor = string.Empty;
         public Batch()
         {
             InitializeComponent();
@@ -84,6 +85,25 @@ namespace Systory
                 newMajor.Show();
                 newMajor.BringToFront();
             }
+        }
+
+        private void MajorDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 1)
+            {
+                DataGridViewCell cell = BatchDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                loadSubject(cell.Value.ToString());
+                _selectedMajor = cell.Value.ToString();
+            }
+        }
+
+        private void loadSubject(string Major)
+        {
+            Major major = new Major(Major);
+            major.TopLevel = false;
+            this.Controls.Add(major);
+            major.Show();
+            major.BringToFront();
         }
     }
 }
