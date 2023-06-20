@@ -106,3 +106,53 @@ begin
 	from @newMajor;
 end
 go
+
+create table [dbo].[Year](
+	[Year] int PRIMARY KEY
+)
+go
+
+insert into [dbo].[Year](
+	[Year]
+)
+values
+(1),
+(2),
+(3),
+(4)
+go
+
+create table [dbo].[Subject](
+	[SubjectId] int primary key IDENTITY(1,1),
+	[SubjectName] varchar(100),
+	[MajorId] int foreign key references dbo.Major([MajorId]),
+	[Year] int foreign key references [dbo].[Year]([Year]),
+)
+go
+
+create type [dbo].[NewSubject] as table
+(
+	[SubjectName] varchar(100),
+	[MajorId] int,
+	[Year] int
+)
+go
+
+create procedure [dbo].[InsertSubject]
+@subject as [dbo].[NewSubject] readonly
+as
+begin
+	insert into [dbo].[Subject]
+	(
+		[SubjectName],
+		[MajorId],
+		[Year]
+	)
+	select
+		[SubjectName],
+		[MajorId],
+		[Year]
+	from
+		@subject;
+end
+go

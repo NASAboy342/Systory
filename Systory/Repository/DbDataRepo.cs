@@ -16,6 +16,46 @@ namespace Systory.Repository
         Connection _connection = new Connection();
         DataTableManagement _dataTableManagement = new DataTableManagement();
 
+        public List<SubjectResponse> GetSubjectList(string year)
+        {
+            var subjectList = new List<SubjectResponse>();
+            var connectionString = _connection.GetConnectionString();
+            var commandString = $"select [SubjectName], [MajorId], [Year] from [dbo].[Subject] WHERE [Year]={year}";
+
+            using var connection = new SqlConnection(connectionString);
+            connection.Open();
+            using var command = new SqlCommand(commandString, connection);
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                subjectList.Add(new SubjectResponse()
+                {
+                    SubjectName = Convert.ToString(reader["SubjectName"]),
+                    MajorId = Convert.ToInt32(reader["MajorId"]),
+                    Year = Convert.ToInt32(reader["Year"])
+                });
+            }
+            connection.Close();
+            return subjectList;
+        }
+        public List<YearModel> GetYearList()
+        {
+            var yearList = new List<YearModel>();
+            var connectionString = _connection.GetConnectionString();
+            var commandString = "select [Year] from [dbo].[Year]";
+
+            using var connection = new SqlConnection(connectionString);
+            connection.Open();
+            using var command = new SqlCommand(commandString, connection);
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                yearList.Add( new YearModel() { Year = Convert.ToInt32(reader["Year"]) });
+            }
+            connection.Close();
+            return yearList;
+        }
+
         public List<FacultyModel> GetListOfFaculty()
         {
             var listOfFaculty = new List<FacultyModel>();

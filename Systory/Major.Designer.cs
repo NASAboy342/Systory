@@ -32,14 +32,14 @@
             Bt_Close = new Button();
             Pn_info = new Panel();
             Bt_addMajor = new Button();
-            BatchDataGrid = new DataGridView();
-            MajorDataGrid = new DataGridView();
+            YearDataGrid = new DataGridView();
+            SubjectDataGrid = new DataGridView();
             label2 = new Label();
             label1 = new Label();
-            label3 = new Label();
+            Lb_Major = new Label();
             Pn_info.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)BatchDataGrid).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MajorDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)YearDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SubjectDataGrid).BeginInit();
             SuspendLayout();
             // 
             // Bt_refresh
@@ -51,6 +51,7 @@
             Bt_refresh.TabIndex = 9;
             Bt_refresh.Text = "Refresh";
             Bt_refresh.UseVisualStyleBackColor = true;
+            Bt_refresh.Click += Bt_refresh_Click;
             // 
             // Bt_Close
             // 
@@ -61,13 +62,14 @@
             Bt_Close.TabIndex = 8;
             Bt_Close.Text = "Close";
             Bt_Close.UseVisualStyleBackColor = true;
+            Bt_Close.Click += Bt_Close_Click;
             // 
             // Pn_info
             // 
             Pn_info.BackColor = Color.FromArgb(0, 64, 64);
             Pn_info.Controls.Add(Bt_addMajor);
-            Pn_info.Controls.Add(BatchDataGrid);
-            Pn_info.Controls.Add(MajorDataGrid);
+            Pn_info.Controls.Add(YearDataGrid);
+            Pn_info.Controls.Add(SubjectDataGrid);
             Pn_info.Controls.Add(label2);
             Pn_info.Controls.Add(label1);
             Pn_info.Location = new Point(12, 87);
@@ -83,30 +85,32 @@
             Bt_addMajor.TabIndex = 7;
             Bt_addMajor.Text = "Add Subject";
             Bt_addMajor.UseVisualStyleBackColor = true;
+            Bt_addMajor.Click += Bt_addMajor_Click;
             // 
-            // BatchDataGrid
+            // YearDataGrid
             // 
-            BatchDataGrid.BackgroundColor = Color.Teal;
-            BatchDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BatchDataGrid.Location = new Point(3, 46);
-            BatchDataGrid.Margin = new Padding(3, 4, 3, 4);
-            BatchDataGrid.Name = "BatchDataGrid";
-            BatchDataGrid.RowHeadersWidth = 51;
-            BatchDataGrid.RowTemplate.Height = 25;
-            BatchDataGrid.Size = new Size(224, 552);
-            BatchDataGrid.TabIndex = 1;
+            YearDataGrid.BackgroundColor = Color.Teal;
+            YearDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            YearDataGrid.Location = new Point(3, 46);
+            YearDataGrid.Margin = new Padding(3, 4, 3, 4);
+            YearDataGrid.Name = "YearDataGrid";
+            YearDataGrid.RowHeadersWidth = 51;
+            YearDataGrid.RowTemplate.Height = 25;
+            YearDataGrid.Size = new Size(224, 552);
+            YearDataGrid.TabIndex = 1;
+            YearDataGrid.CellContentClick += YearDataGrid_CellContentClick;
             // 
-            // MajorDataGrid
+            // SubjectDataGrid
             // 
-            MajorDataGrid.BackgroundColor = Color.Teal;
-            MajorDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            MajorDataGrid.Location = new Point(233, 46);
-            MajorDataGrid.Margin = new Padding(3, 4, 3, 4);
-            MajorDataGrid.Name = "MajorDataGrid";
-            MajorDataGrid.RowHeadersWidth = 51;
-            MajorDataGrid.RowTemplate.Height = 25;
-            MajorDataGrid.Size = new Size(443, 552);
-            MajorDataGrid.TabIndex = 2;
+            SubjectDataGrid.BackgroundColor = Color.Teal;
+            SubjectDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            SubjectDataGrid.Location = new Point(233, 46);
+            SubjectDataGrid.Margin = new Padding(3, 4, 3, 4);
+            SubjectDataGrid.Name = "SubjectDataGrid";
+            SubjectDataGrid.RowHeadersWidth = 51;
+            SubjectDataGrid.RowTemplate.Height = 25;
+            SubjectDataGrid.Size = new Size(443, 552);
+            SubjectDataGrid.TabIndex = 2;
             // 
             // label2
             // 
@@ -132,17 +136,17 @@
             label1.TabIndex = 3;
             label1.Text = "Year";
             // 
-            // label3
+            // Lb_Major
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(0, 192, 192);
-            label3.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 55);
-            label3.Name = "label3";
-            label3.Size = new Size(74, 29);
-            label3.TabIndex = 11;
-            label3.Text = "Major";
+            Lb_Major.AutoSize = true;
+            Lb_Major.BackColor = Color.FromArgb(0, 192, 192);
+            Lb_Major.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Lb_Major.ForeColor = Color.White;
+            Lb_Major.Location = new Point(12, 55);
+            Lb_Major.Name = "Lb_Major";
+            Lb_Major.Size = new Size(74, 29);
+            Lb_Major.TabIndex = 11;
+            Lb_Major.Text = "Major";
             // 
             // Major
             // 
@@ -150,7 +154,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
             ClientSize = new Size(706, 701);
-            Controls.Add(label3);
+            Controls.Add(Lb_Major);
             Controls.Add(Pn_info);
             Controls.Add(Bt_refresh);
             Controls.Add(Bt_Close);
@@ -160,8 +164,8 @@
             Load += Major_Load;
             Pn_info.ResumeLayout(false);
             Pn_info.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)BatchDataGrid).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MajorDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)YearDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SubjectDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,10 +176,10 @@
         private Button Bt_Close;
         private Panel Pn_info;
         private Button Bt_addMajor;
-        private DataGridView BatchDataGrid;
-        private DataGridView MajorDataGrid;
+        private DataGridView YearDataGrid;
+        private DataGridView SubjectDataGrid;
         private Label label2;
         private Label label1;
-        private Label label3;
+        private Label Lb_Major;
     }
 }

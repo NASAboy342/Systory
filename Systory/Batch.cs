@@ -91,7 +91,7 @@ namespace Systory
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 1)
             {
-                DataGridViewCell cell = BatchDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewCell cell = MajorDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 loadSubject(cell.Value.ToString());
                 _selectedMajor = cell.Value.ToString();
             }
