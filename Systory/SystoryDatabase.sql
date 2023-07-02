@@ -139,7 +139,9 @@ create type [dbo].[NewSubject] as table
 go
 
 create procedure [dbo].[InsertSubject]
-@subject as [dbo].[NewSubject] readonly
+@SubjectName varchar(100),
+@Major varchar(100),
+@Year int
 as
 begin
 	insert into [dbo].[Subject]
@@ -148,11 +150,28 @@ begin
 		[MajorId],
 		[Year]
 	)
-	select
-		[SubjectName],
-		[MajorId],
-		[Year]
-	from
-		@subject;
+	values
+	(
+		@SubjectName,
+		(select [MajorId] from [dbo].[Major] where [MajorName] = @Major),
+		@Year
+	)
+end
+go
+
+create procedure [dbo].[GetSubjectsByYearAndMajor]
+@Year int,
+@Major varchar(100)
+as
+begin
+Select	
+	[SubjectName],
+	[MajorId],
+	[Year]
+From [dbo].[Subject]
+Where
+	[Year] = @Year
+	and
+	[MajorId] = (Select [MajorId] from [dbo].[Major] where [MajorName] = @Major)
 end
 go

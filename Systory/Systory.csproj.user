@@ -25,5 +25,8 @@
     <Compile Update="NewMajor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NewSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -16,9 +16,9 @@ namespace Systory.Controller
             return _dbDataRepo.GetYearList();
         }
 
-        public List<SubjectResponse> GetSubjectList(string year)
+        public List<SubjectResponse> GetSubjectList(string year,string major)
         {
-            return _dbDataRepo.GetSubjectList(year);
+            return _dbDataRepo.GetSubjectList(year,major);
         }
    }
 }

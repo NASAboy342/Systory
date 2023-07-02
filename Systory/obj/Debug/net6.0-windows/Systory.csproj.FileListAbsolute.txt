@@ -49,3 +49,4 @@ D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.ConnectingToD
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.NewMajor.resources
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.Faculty.resources
 D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.Major.resources
+D:\Clones\Systory\Systory\Systory\obj\Debug\net6.0-windows\Systory.NewSubject.resources

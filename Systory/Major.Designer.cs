@@ -31,7 +31,7 @@
             Bt_refresh = new Button();
             Bt_Close = new Button();
             Pn_info = new Panel();
-            Bt_addMajor = new Button();
+            Bt_addSubject = new Button();
             YearDataGrid = new DataGridView();
             SubjectDataGrid = new DataGridView();
             label2 = new Label();
@@ -67,7 +67,7 @@
             // Pn_info
             // 
             Pn_info.BackColor = Color.FromArgb(0, 64, 64);
-            Pn_info.Controls.Add(Bt_addMajor);
+            Pn_info.Controls.Add(Bt_addSubject);
             Pn_info.Controls.Add(YearDataGrid);
             Pn_info.Controls.Add(SubjectDataGrid);
             Pn_info.Controls.Add(label2);
@@ -77,15 +77,15 @@
             Pn_info.Size = new Size(679, 602);
             Pn_info.TabIndex = 10;
             // 
-            // Bt_addMajor
+            // Bt_addSubject
             // 
-            Bt_addMajor.Location = new Point(552, 8);
-            Bt_addMajor.Name = "Bt_addMajor";
-            Bt_addMajor.Size = new Size(124, 29);
-            Bt_addMajor.TabIndex = 7;
-            Bt_addMajor.Text = "Add Subject";
-            Bt_addMajor.UseVisualStyleBackColor = true;
-            Bt_addMajor.Click += Bt_addMajor_Click;
+            Bt_addSubject.Location = new Point(552, 8);
+            Bt_addSubject.Name = "Bt_addSubject";
+            Bt_addSubject.Size = new Size(124, 29);
+            Bt_addSubject.TabIndex = 7;
+            Bt_addSubject.Text = "Add Subject";
+            Bt_addSubject.UseVisualStyleBackColor = true;
+            Bt_addSubject.Click += Bt_addMajor_Click;
             // 
             // YearDataGrid
             // 
@@ -175,7 +175,7 @@
         private Button Bt_refresh;
         private Button Bt_Close;
         private Panel Pn_info;
-        private Button Bt_addMajor;
+        private Button Bt_addSubject;
         private DataGridView YearDataGrid;
         private DataGridView SubjectDataGrid;
         private Label label2;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,16 +16,42 @@ namespace Systory.Repository
     {
         Connection _connection = new Connection();
         DataTableManagement _dataTableManagement = new DataTableManagement();
+        
+        public ErrorStatusModel InsertNewSubject(string major,string year,string newSubject)
+        {
+            try
+            {
+                var connectionString = _connection.GetConnectionString();
+                var commandString = StoredProcedureInsertSubject.SpName;
 
-        public List<SubjectResponse> GetSubjectList(string year)
+                using var connection = new SqlConnection(connectionString);
+                connection.Open();
+                using var command = new SqlCommand(commandString, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaMajor, major);
+                command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaYear, Convert.ToInt32(year));
+                command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaSubjectName, newSubject);
+                command.ExecuteNonQueryAsync();
+                return new ErrorStatusModel() { ErrorCode = ErrorCode.Success };
+            }
+            catch(Exception ex)
+            {
+                return new ErrorStatusModel() { ErrorCode = ErrorCode.Error };
+            }
+            
+        }
+        public List<SubjectResponse> GetSubjectList(string year, string major)
         {
             var subjectList = new List<SubjectResponse>();
             var connectionString = _connection.GetConnectionString();
-            var commandString = $"select [SubjectName], [MajorId], [Year] from [dbo].[Subject] WHERE [Year]={year}";
+            var commandString = StoredProcedureGetSubjectsByYearAndMajor.SpName;
 
             using var connection = new SqlConnection(connectionString);
             connection.Open();
             using var command = new SqlCommand(commandString, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue(StoredProcedureGetSubjectsByYearAndMajor.ParaYear, year);
+            command.Parameters.AddWithValue(StoredProcedureGetSubjectsByYearAndMajor.ParaMajor, major);
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {

@@ -29,4 +29,18 @@ namespace Systory.Models
         public static string SpName => "dbo.InsertNewMajor";
         public static string ParaName => "@newMajor";
     }
+    class StoredProcedureGetSubjectsByYearAndMajor
+    {
+        public static string SpName => "[dbo].[GetSubjectsByYearAndMajor]";
+        public static string ParaMajor => "@Major";
+        public static string ParaYear => "@Year";
+    }
+
+    class StoredProcedureInsertSubject
+    {
+        public static string SpName => "[dbo].[InsertSubject]";
+        public static string ParaSubjectName => "@SubjectName";
+        public static string ParaMajor => "@Major";
+        public static string ParaYear => "@Year";
+    }
 }
