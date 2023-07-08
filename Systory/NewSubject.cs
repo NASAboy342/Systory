@@ -14,8 +14,8 @@ namespace Systory
 {
     public partial class NewSubject : Form
     {
-        private static string _major;
-        private static int _year;
+        private readonly string _major;
+        private readonly int _year;
         private static DbDataRepo _dbDataRepo;
         public NewSubject(string major, int year)
         {
@@ -35,7 +35,8 @@ namespace Systory
             var major = _major;
             var year = _year.ToString();
             var newSubject = Tb_Subject.Text;
-            var result = _dbDataRepo.InsertNewSubject(major, year, newSubject);
+            var TeacherName = Tb_teacherName.Text;
+            var result = _dbDataRepo.InsertNewSubject(major, year, newSubject, TeacherName);
             if (result.ErrorCode == ErrorCode.Error)
                 MessageBox.Show("Update Error!\nPlease TRY_CAST again");
             else

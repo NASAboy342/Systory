@@ -125,6 +125,7 @@ go
 create table [dbo].[Subject](
 	[SubjectId] int primary key IDENTITY(1,1),
 	[SubjectName] varchar(100),
+	[TeacherName] varchar(100),
 	[MajorId] int foreign key references dbo.Major([MajorId]),
 	[Year] int foreign key references [dbo].[Year]([Year]),
 )
@@ -133,6 +134,7 @@ go
 create type [dbo].[NewSubject] as table
 (
 	[SubjectName] varchar(100),
+	[TeacherName] varchar(100),
 	[MajorId] int,
 	[Year] int
 )
@@ -140,6 +142,7 @@ go
 
 create procedure [dbo].[InsertSubject]
 @SubjectName varchar(100),
+@TeacherName varchar(100),
 @Major varchar(100),
 @Year int
 as
@@ -147,12 +150,14 @@ begin
 	insert into [dbo].[Subject]
 	(
 		[SubjectName],
+		[TeacherName],
 		[MajorId],
 		[Year]
 	)
 	values
 	(
 		@SubjectName,
+		@TeacherName,
 		(select [MajorId] from [dbo].[Major] where [MajorName] = @Major),
 		@Year
 	)
@@ -165,7 +170,9 @@ create procedure [dbo].[GetSubjectsByYearAndMajor]
 as
 begin
 Select	
+	[SubjectId],
 	[SubjectName],
+	[TeacherName],
 	[MajorId],
 	[Year]
 From [dbo].[Subject]
@@ -173,5 +180,52 @@ Where
 	[Year] = @Year
 	and
 	[MajorId] = (Select [MajorId] from [dbo].[Major] where [MajorName] = @Major)
+end
+go
+
+create table [dbo].[Students]
+(
+	[StudentId] int primary key IDENTITY(1,1),
+	[StudentName] varchar(100),
+	[Sex] varchar(7),
+	[StudySift] varchar(20),
+	[MajorId] int foreign key references dbo.Major([MajorId]),
+)
+go
+create table [dbo].[score]
+(
+	[SubjectId] int foreign key references [dbo].[Subject]([SubjectId]),
+	[StudentId] int foreign key references [dbo].[Students]([StudentId]),
+	[Homework] int,
+	[Quiz] int,
+	[MidTerm] int,
+	[Final] int
+)
+go
+create procedure [dbo].[GetStudents]
+as
+begin
+	select 
+		[StudentId],
+		[StudentName],
+		[Sex],
+		[StudySift],
+		[MajorId]
+	from
+		[dbo].[Students]
+end
+go
+create procedure [dbo].[GetScore]
+as
+begin
+	select
+		[SubjectId],
+		[StudentId],
+		[Homework],
+		[Quiz],
+		[MidTerm],
+		[Final]
+	from
+		[dbo].[score]
 end
 go

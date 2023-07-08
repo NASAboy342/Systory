@@ -42,5 +42,26 @@ namespace Systory.Models
         public static string ParaSubjectName => "@SubjectName";
         public static string ParaMajor => "@Major";
         public static string ParaYear => "@Year";
+        public static string ParaTeacherName => "@TeacherName";
+    }
+
+    class StoredProcedureGetStudents
+    {
+        public static string SpName => "[dbo].[GetStudents]";
+        public static string StudentId => "StudentId";
+        public static string StudentName => "StudentName";
+        public static string Sex => "Sex";
+        public static string StudySift => "StudySift";
+        public static string MajorId => "MajorId";
+    }
+    class StoredProcudureGetScore
+    {
+        public static string SpName => "[dbo].[GetScore]";
+        public static string SubjectId => "SubjectId";
+        public static string StudentId => "StudentId";
+        public static string Homework => "Homework";
+        public static string Quiz => "Quiz";
+        public static string MidTerm => "MidTerm";
+        public static string Final => "Final";
     }
 }

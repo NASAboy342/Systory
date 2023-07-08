@@ -39,7 +39,7 @@
             // 
             // Bt_refresh
             // 
-            Bt_refresh.Location = new Point(602, 13);
+            Bt_refresh.Location = new Point(1279, 13);
             Bt_refresh.Margin = new Padding(3, 4, 3, 4);
             Bt_refresh.Name = "Bt_refresh";
             Bt_refresh.Size = new Size(86, 31);
@@ -65,7 +65,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 107);
             panel1.Name = "panel1";
-            panel1.Size = new Size(682, 582);
+            panel1.Size = new Size(1353, 582);
             panel1.TabIndex = 10;
             // 
             // FacultyDataGrid
@@ -76,7 +76,7 @@
             FacultyDataGrid.Name = "FacultyDataGrid";
             FacultyDataGrid.RowHeadersWidth = 51;
             FacultyDataGrid.RowTemplate.Height = 29;
-            FacultyDataGrid.Size = new Size(676, 545);
+            FacultyDataGrid.Size = new Size(1347, 545);
             FacultyDataGrid.TabIndex = 11;
             // 
             // label1
@@ -96,7 +96,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(706, 701);
+            ClientSize = new Size(1377, 701);
             Controls.Add(panel1);
             Controls.Add(Bt_refresh);
             Controls.Add(Bt_Close);

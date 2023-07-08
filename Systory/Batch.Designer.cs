@@ -75,7 +75,7 @@
             MajorDataGrid.Name = "MajorDataGrid";
             MajorDataGrid.RowHeadersWidth = 51;
             MajorDataGrid.RowTemplate.Height = 25;
-            MajorDataGrid.Size = new Size(443, 552);
+            MajorDataGrid.Size = new Size(1115, 552);
             MajorDataGrid.TabIndex = 2;
             MajorDataGrid.CellContentClick += MajorDataGrid_CellContentClick;
             // 
@@ -125,12 +125,12 @@
             Pn_info.Controls.Add(label1);
             Pn_info.Location = new Point(14, 87);
             Pn_info.Name = "Pn_info";
-            Pn_info.Size = new Size(679, 602);
+            Pn_info.Size = new Size(1351, 602);
             Pn_info.TabIndex = 6;
             // 
             // Bt_addMajor
             // 
-            Bt_addMajor.Location = new Point(582, 8);
+            Bt_addMajor.Location = new Point(1245, 8);
             Bt_addMajor.Name = "Bt_addMajor";
             Bt_addMajor.Size = new Size(94, 29);
             Bt_addMajor.TabIndex = 7;
@@ -140,7 +140,7 @@
             // 
             // Bt_refresh
             // 
-            Bt_refresh.Location = new Point(604, 16);
+            Bt_refresh.Location = new Point(106, 16);
             Bt_refresh.Margin = new Padding(3, 4, 3, 4);
             Bt_refresh.Name = "Bt_refresh";
             Bt_refresh.Size = new Size(86, 31);
@@ -154,7 +154,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(706, 701);
+            ClientSize = new Size(1377, 701);
             Controls.Add(Bt_refresh);
             Controls.Add(Bt_Close);
             Controls.Add(Pn_info);

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Systory.Controller;
 using Systory.Helpers;
 using Systory.Managers;
+using Systory.Models;
 using Systory.Repository;
 
 namespace Systory
@@ -18,9 +19,11 @@ namespace Systory
     {
         private readonly string _selectedMajor;
         private string _selectedYear;
+        private List<SubjectResponse> _listOfSubjects;
         private readonly MajorController _majorController;
         private readonly FormLoadHelper _formLoadHelper;
         private readonly DataSourceHelper _dataSourceHelper;
+
         public Major(string selectedMajor)
         {
             InitializeComponent();
@@ -68,13 +71,23 @@ namespace Systory
 
         private void loadSubjectDataGrid(string year, string major)
         {
-            _dataSourceHelper.SetDataSocurceToDataGrid(SubjectDataGrid,_majorController.GetSubjectList(year, major));
+            _listOfSubjects = _majorController.GetSubjectList(year, major);
+            _dataSourceHelper.SetDataSocurceToDataGrid(SubjectDataGrid, _listOfSubjects);
         }
 
         private void Bt_addMajor_Click(object sender, EventArgs e)
         {
-            NewSubject newSubject = new NewSubject(_selectedMajor, Convert.ToInt32(_selectedYear));
-            _formLoadHelper.LoadSubformInForm(this, newSubject);
+            _formLoadHelper.LoadSubformInForm(this, new NewSubject(_selectedMajor, Convert.ToInt32(_selectedYear)));
+        }
+
+        private void SubjectDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+
+                DataGridViewCell cell = SubjectDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                _formLoadHelper.LoadSubformInForm(this, new Shift(_listOfSubjects.FirstOrDefault(s => s.SubjectName == cell.Value)));
+            }
         }
     }
 }

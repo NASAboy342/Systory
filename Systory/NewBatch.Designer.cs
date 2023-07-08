@@ -96,7 +96,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(220, 36);
+            label3.Location = new Point(573, 36);
             label3.Name = "label3";
             label3.Size = new Size(221, 35);
             label3.TabIndex = 5;
@@ -121,7 +121,7 @@
             panel1.Controls.Add(Bt_create);
             panel1.Controls.Add(Lb_batch);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(84, 115);
+            panel1.Location = new Point(437, 115);
             panel1.Name = "panel1";
             panel1.Size = new Size(484, 214);
             panel1.TabIndex = 7;
@@ -129,7 +129,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Teal;
-            panel2.Location = new Point(13, 12);
+            panel2.Location = new Point(366, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(654, 10);
             panel2.TabIndex = 8;
@@ -139,7 +139,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(679, 602);
+            ClientSize = new Size(1351, 602);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label3);

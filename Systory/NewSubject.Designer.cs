@@ -30,6 +30,8 @@
         {
             panel2 = new Panel();
             panel1 = new Panel();
+            Tb_teacherName = new TextBox();
+            label1 = new Label();
             Tb_Subject = new TextBox();
             Bt_cancel = new Button();
             Bt_create = new Button();
@@ -42,7 +44,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Teal;
-            panel2.Location = new Point(31, 30);
+            panel2.Location = new Point(393, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(645, 10);
             panel2.TabIndex = 14;
@@ -50,15 +52,35 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(Tb_teacherName);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(Tb_Subject);
             panel1.Controls.Add(Bt_cancel);
             panel1.Controls.Add(Bt_create);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(31, 134);
+            panel1.Location = new Point(393, 116);
             panel1.Name = "panel1";
             panel1.Size = new Size(645, 217);
             panel1.TabIndex = 13;
             panel1.Paint += panel1_Paint;
+            // 
+            // Tb_teacherName
+            // 
+            Tb_teacherName.Location = new Point(163, 115);
+            Tb_teacherName.Name = "Tb_teacherName";
+            Tb_teacherName.Size = new Size(449, 27);
+            Tb_teacherName.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(16, 115);
+            label1.Name = "label1";
+            label1.Size = new Size(151, 28);
+            label1.TabIndex = 7;
+            label1.Text = "Teacher name:";
             // 
             // Tb_Subject
             // 
@@ -103,7 +125,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(28, 82);
+            label3.Location = new Point(390, 64);
             label3.Name = "label3";
             label3.Size = new Size(265, 28);
             label3.TabIndex = 12;
@@ -114,7 +136,7 @@
             Lb_Major.AutoSize = true;
             Lb_Major.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             Lb_Major.ForeColor = Color.White;
-            Lb_Major.Location = new Point(298, 83);
+            Lb_Major.Location = new Point(660, 65);
             Lb_Major.Name = "Lb_Major";
             Lb_Major.Size = new Size(36, 28);
             Lb_Major.TabIndex = 11;
@@ -125,7 +147,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(706, 701);
+            ClientSize = new Size(1377, 701);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label3);
@@ -150,5 +172,7 @@
         private Label label2;
         private Label label3;
         private Label Lb_Major;
+        private TextBox Tb_teacherName;
+        private Label label1;
     }
 }

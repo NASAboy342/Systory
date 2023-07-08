@@ -17,7 +17,14 @@ namespace Systory.Repository
         Connection _connection = new Connection();
         DataTableManagement _dataTableManagement = new DataTableManagement();
         
-        public ErrorStatusModel InsertNewSubject(string major,string year,string newSubject)
+        public List<StudentsModel> GetStudentsList()
+        {
+            var connectionString = _connection.GetConnectionString();
+            var commandString = "";
+
+
+        }
+        public ErrorStatusModel InsertNewSubject(string major,string year,string newSubject,string teacherName)
         {
             try
             {
@@ -31,6 +38,7 @@ namespace Systory.Repository
                 command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaMajor, major);
                 command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaYear, Convert.ToInt32(year));
                 command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaSubjectName, newSubject);
+                command.Parameters.AddWithValue(StoredProcedureInsertSubject.ParaTeacherName, teacherName);
                 command.ExecuteNonQueryAsync();
                 return new ErrorStatusModel() { ErrorCode = ErrorCode.Success };
             }
@@ -57,7 +65,9 @@ namespace Systory.Repository
             {
                 subjectList.Add(new SubjectResponse()
                 {
+                    SubjectId = Convert.ToInt32(reader["SubjectId"]),
                     SubjectName = Convert.ToString(reader["SubjectName"]),
+                    TeacherName = Convert.ToString(reader["TeacherName"]),
                     MajorId = Convert.ToInt32(reader["MajorId"]),
                     Year = Convert.ToInt32(reader["Year"])
                 });

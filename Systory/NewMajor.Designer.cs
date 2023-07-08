@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            Cb_faculty = new ComboBox();
+            label1 = new Label();
             Tb_major = new TextBox();
             Bt_cancel = new Button();
             Bt_create = new Button();
@@ -36,8 +38,6 @@
             Lb_batch = new Label();
             label3 = new Label();
             panel2 = new Panel();
-            label1 = new Label();
-            Cb_faculty = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,11 +50,30 @@
             panel1.Controls.Add(Bt_cancel);
             panel1.Controls.Add(Bt_create);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(30, 116);
+            panel1.Location = new Point(364, 116);
             panel1.Name = "panel1";
             panel1.Size = new Size(615, 217);
             panel1.TabIndex = 9;
             panel1.Paint += panel1_Paint;
+            // 
+            // Cb_faculty
+            // 
+            Cb_faculty.FormattingEnabled = true;
+            Cb_faculty.Location = new Point(163, 35);
+            Cb_faculty.Name = "Cb_faculty";
+            Cb_faculty.Size = new Size(414, 28);
+            Cb_faculty.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(18, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 28);
+            label1.TabIndex = 7;
+            label1.Text = "Faculty of:";
             // 
             // Tb_major
             // 
@@ -100,7 +119,7 @@
             Lb_batch.AutoSize = true;
             Lb_batch.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             Lb_batch.ForeColor = Color.White;
-            Lb_batch.Location = new Point(479, 43);
+            Lb_batch.Location = new Point(813, 43);
             Lb_batch.Name = "Lb_batch";
             Lb_batch.Size = new Size(52, 41);
             Lb_batch.TabIndex = 2;
@@ -111,7 +130,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(168, 45);
+            label3.Location = new Point(502, 45);
             label3.Name = "label3";
             label3.Size = new Size(305, 35);
             label3.TabIndex = 8;
@@ -120,36 +139,17 @@
             // panel2
             // 
             panel2.BackColor = Color.Teal;
-            panel2.Location = new Point(30, 12);
+            panel2.Location = new Point(364, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(615, 10);
             panel2.TabIndex = 10;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(18, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 28);
-            label1.TabIndex = 7;
-            label1.Text = "Faculty of:";
-            // 
-            // Cb_faculty
-            // 
-            Cb_faculty.FormattingEnabled = true;
-            Cb_faculty.Location = new Point(163, 35);
-            Cb_faculty.Name = "Cb_faculty";
-            Cb_faculty.Size = new Size(414, 28);
-            Cb_faculty.TabIndex = 8;
             // 
             // NewMajor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 192, 192);
-            ClientSize = new Size(679, 602);
+            ClientSize = new Size(1351, 602);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label3);

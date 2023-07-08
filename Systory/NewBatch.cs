@@ -52,7 +52,7 @@ namespace Systory
             {
                 MessageBox.Show("Create Error. Try again");
             }
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)

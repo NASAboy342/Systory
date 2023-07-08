@@ -151,7 +151,7 @@
             Pn_Info.Location = new Point(193, 83);
             Pn_Info.Margin = new Padding(3, 4, 3, 4);
             Pn_Info.Name = "Pn_Info";
-            Pn_Info.Size = new Size(706, 701);
+            Pn_Info.Size = new Size(1377, 701);
             Pn_Info.TabIndex = 9;
             // 
             // Systory
@@ -160,7 +160,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.Teal;
-            ClientSize = new Size(914, 800);
+            ClientSize = new Size(1582, 853);
             Controls.Add(Pn_Info);
             Controls.Add(label1);
             Controls.Add(Pn_Feature);
