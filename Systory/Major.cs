@@ -21,7 +21,7 @@ namespace Systory
         private string _selectedYear;
         private List<SubjectResponse> _listOfSubjects;
         private readonly MajorController _majorController;
-        private readonly FormLoadHelper _formLoadHelper;
+        private readonly FormLoadHelper _formLoadHelper = new FormLoadHelper();
         private readonly DataSourceHelper _dataSourceHelper;
 
         public Major(string selectedMajor)
@@ -29,7 +29,6 @@ namespace Systory
             InitializeComponent();
             _selectedMajor = selectedMajor;
             _majorController = new MajorController();
-            _formLoadHelper = new FormLoadHelper();
             _dataSourceHelper = new DataSourceHelper();
         }
 
@@ -82,7 +81,7 @@ namespace Systory
 
         private void SubjectDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex == 1)
             {
 
                 DataGridViewCell cell = SubjectDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];

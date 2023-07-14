@@ -10,11 +10,14 @@
         "projectUniqueName": "D:\\Clones\\Systory\\Systory\\Systory\\Systory.csproj",
         "projectName": "Systory",
         "projectPath": "D:\\Clones\\Systory\\Systory\\Systory\\Systory.csproj",
-        "packagesPath": "C:\\Users\\sopheaktra.pin\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Pin Sopheaktra\\.nuget\\packages\\",
         "outputPath": "D:\\Clones\\Systory\\Systory\\Systory\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sopheaktra.pin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pin Sopheaktra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +25,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.568win.local/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

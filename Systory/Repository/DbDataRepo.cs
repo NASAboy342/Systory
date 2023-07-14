@@ -17,12 +17,54 @@ namespace Systory.Repository
         Connection _connection = new Connection();
         DataTableManagement _dataTableManagement = new DataTableManagement();
         
+        public List<ScoreModel> GetScores()
+        {
+            var scoreList = new List<ScoreModel>();
+            var connectionString = _connection.GetConnectionString();
+            var commandString = StoredProcudureGetScore.SpName;
+
+            var connection = new SqlConnection(connectionString);
+            connection.Open();
+            var command = new SqlCommand(commandString, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            var reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                scoreList.Add(new ScoreModel()
+                {
+                    SubjectId = Convert.ToInt32(reader[StoredProcudureGetScore.SubjectId]),
+                    StudentId = Convert.ToInt32(reader[StoredProcudureGetScore.StudentId]),
+                    Homework = Convert.ToInt32(reader[StoredProcudureGetScore.Homework]),
+                    Quiz = Convert.ToInt32(reader[StoredProcudureGetScore.Quiz]),
+                    MidTerm = Convert.ToInt32(reader[StoredProcudureGetScore.MidTerm]),
+                    Final = Convert.ToInt32(reader[StoredProcudureGetScore.Final])
+                });
+            }
+            return scoreList;
+        } 
         public List<StudentsModel> GetStudentsList()
         {
+            var studentlist = new List<StudentsModel>();
             var connectionString = _connection.GetConnectionString();
-            var commandString = "";
+            var commandString = StoredProcedureGetStudents.SpName;
 
-
+            var connection = new SqlConnection(connectionString);
+            connection.Open();
+            var command = new SqlCommand(commandString, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            var reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                studentlist.Add(new StudentsModel
+                {
+                    StudentId = Convert.ToInt32(reader[StoredProcedureGetStudents.StudentId]),
+                    StudentName = Convert.ToString(reader[StoredProcedureGetStudents.StudentName]),
+                    Sex = Convert.ToString(reader[StoredProcedureGetStudents.Sex]),
+                    StudySift = Convert.ToInt32(reader[StoredProcedureGetStudents.StudySift]),
+                    MajorId = Convert.ToInt32(reader[StoredProcedureGetStudents.MajorId])
+                });
+            }
+            return studentlist;
         }
         public ErrorStatusModel InsertNewSubject(string major,string year,string newSubject,string teacherName)
         {

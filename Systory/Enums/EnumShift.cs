@@ -11,6 +11,6 @@ namespace Systory.Enums
         Morning,
         Afternoon,
         Evening,
-        Weeken
+        Weekend
     }
 }

@@ -16,13 +16,12 @@ namespace Systory
     {
         private readonly string _major;
         private readonly int _year;
-        private static DbDataRepo _dbDataRepo;
+        private static DbDataRepo _dbDataRepo = new DbDataRepo();
         public NewSubject(string major, int year)
         {
             InitializeComponent();
             _major = major;
             _year = year;
-            _dbDataRepo = new DbDataRepo();
         }
 
         private void Bt_cancel_Click(object sender, EventArgs e)

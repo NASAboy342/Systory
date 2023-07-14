@@ -11,7 +11,7 @@ namespace Systory.Models
         public int StudentId { get; set; }
         public string StudentName { get; set; }
         public string Sex { get; set; }
-        public string StudySift { get; set; }
+        public int StudySift { get; set; }
         public int MajorId { get; set; }
     }
 }

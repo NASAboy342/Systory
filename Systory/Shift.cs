@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using Systory.Enums;
 using Systory.Helpers;
 using Systory.Models;
+using Systory.Services;
 
 namespace Systory
 {
     public partial class Shift : Form
     {
         private readonly SubjectResponse _subject;
+        private readonly SubjectService _subjectService = new SubjectService();
         private readonly DataSourceHelper _dataSourceHelper = new DataSourceHelper();
         public Shift(SubjectResponse subjectModel)
         {
@@ -56,8 +58,8 @@ namespace Systory
 
         private void LoadStudentDataGrid(EnumShift shift)
         {
-            var studentList = new List<StudentListBySubject>();
-            _dataSourceHelper.SetDataSocurceToDataGrid(StudentListGrid, studentList);
+            var studentList = _subjectService.GetStudentListBySubject(_subject, shift);
+                _dataSourceHelper.SetDataSocurceToDataGrid(StudentListGrid, studentList);
         }
 
         private void Bt_afternon_Click(object sender, EventArgs e)
@@ -72,7 +74,12 @@ namespace Systory
 
         private void Bt_weeken_Click(object sender, EventArgs e)
         {
-            LoadStudentDataGrid(EnumShift.Weeken);
+            LoadStudentDataGrid(EnumShift.Weekend);
+        }
+
+        private void StudentListGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
